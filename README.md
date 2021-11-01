@@ -34,4 +34,58 @@ driver.quit() # close all tabs
 ```
 
 
+## What is HTML?
+- Document Object Model - html document (DOM)
+- tag : 
+  head, body, div, button, 
+  span, a (links)
+  input (text, password, submit, checkbox, radio, file)
+  form, select, 
+```html
+<head></head>
+<body></body>
+```
 
+### Using chrome developers tools options to inspect web elements
+- Tags are purple
+- Attributes are in red
+- Values of the attributes will be in blue
+- text in the elements, that are in the tags, will be in black
+
+
+hw: read and try out 
+- https://www.w3schools.com/html/html_intro.asp
+- https://www.w3schools.com/html/html_elements.asp
+- https://www.w3schools.com/html/html_attributes.asp
+- https://www.w3schools.com/html/html_links.asp
+- https://www.w3schools.com/html/html_forms.asp (all other pages for html forms)
+
+
+### Finding the element 
+
+```python
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)  # synchronizing the browser
+driver.maximize_window()
+
+driver.find_element_by_id() # fastest way of finding element from html document.
+driver.find_element_by_name()
+
+driver.find_element_by_xpath()      # technics, build
+driver.find_element_by_css_selector()  # technics, build 
+
+driver.find_element_by_link_text()
+driver.find_elements_by_class_name() # class names might be dynamic
+driver.find_element_by_partial_link_text()
+driver.find_element_by_tag_name()
+
+```
+
+
+### Agenda for Automation classes on Selenium
+
+- webdriver - handling browser 
+- webelement - working with elements
+- framework - manage the code better
