@@ -14,7 +14,7 @@ from selenium.webdriver.common.keys import Keys
 # 1. open the browser
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)  # synchronizing the browser
-driver.maximize_window()
+# driver.maximize_window()
 
 # 2. open the automationpractice.com demo website
 driver.get("http://automationpractice.com/index.php")
@@ -40,8 +40,19 @@ print(win_names)
 print("######### webdriver methods: ############")
 # back(), forward(), refresh(), switch_to.window(window_name)
 driver.back()
+time.sleep(1)
 print('current url: ', driver.current_url)
 driver.forward()
 print('current url: ', driver.current_url)
-time.sleep(5)
+time.sleep(1)
 driver.refresh()
+time.sleep(1)
+
+print (" ################# switch_to.window(window_name) ##########")
+products = driver.find_elements(By.XPATH, "//div[@id='center_column']//a[@class='product-name']")
+products[0].click()
+time.sleep(5)
+fb_btn_xpath = '//button[@class="btn btn-default btn-facebook"]'
+driver.find_element(By.XPATH, fb_btn_xpath).click()
+win_names = driver.window_handles
+print(win_names)
