@@ -32,7 +32,20 @@ search_box.send_keys('dress' + Keys.ENTER)
 # //a[text()='Ladies'] vs a:contains('Ladies')
 time.sleep(5)
 result = driver.find_element(By.CSS_SELECTOR, 'span.heading-counter').text
-print("result of the search", result)
+print("####################### result of the search", result)
+
+print(" ########### 11/07/2021 #####################")
+print(" ########### Example for Find Elements #####################")
+products = driver.find_elements(By.XPATH, "//div[@id='center_column']//a[@class='product-name']")
+# nums = [2, 3, 4, 6] + 10
+
+product_names = []
+for product in products:
+    print(f"'{product.text}'")
+    product_names.append(product.text.strip())
+
+print(product_names)
+
 print("------------- Completed --------------------")
 
 # find_element vs find_elements
@@ -40,7 +53,6 @@ print("------------- Completed --------------------")
 # above will return elements in a list
 # please be aware of this you will get following Error:
 # AttributeError: 'list' object has no attribute 'text'
-
 time.sleep(5)
 # locators: id, name, class, >> xpath, css selector  >> link_text,
 driver.quit()
