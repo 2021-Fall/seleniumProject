@@ -218,13 +218,13 @@ Some text here
 ```
 # # *********** Scenario: Login to "http://automationpractice.com/index.php"
 # web_url = "http://automationpractice.com/index.php"
+create new account to get the username and password then create automated scenario to login.
 # username = "hello@email.com"
 # pswd = "$Password001"
 ```
 
-Please check the automation test example for finding the element and doing some action on this element. [find element by exapmle](finding_elements.py)
+Please check the automation test example for finding the element and doing some action on this element. [find element by exapmle](find_elements.py)
 
-    website we are using : https://www.seleniumeasy.com/test/
 
 ### Agenda for Automation classes on Selenium
 
