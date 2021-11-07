@@ -56,3 +56,15 @@ fb_btn_xpath = '//button[@class="btn btn-default btn-facebook"]'
 driver.find_element(By.XPATH, fb_btn_xpath).click()
 win_names = driver.window_handles
 print(win_names)
+print(driver.title)
+time.sleep(2)
+driver.switch_to.window(win_names[-1])
+
+driver.find_element(By.ID, 'email').send_keys("myemail@gmail.com")
+driver.find_element(By.NAME, 'pass').send_keys("#$%YoudontknowmyPassEvenIdontknow")
+time.sleep(5)
+
+# close the browser
+driver.close()  # it will close current window
+time.sleep(5)
+driver.quit()
