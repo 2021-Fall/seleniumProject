@@ -11,6 +11,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+# Variables
+filepath = 'screenshots/'
+
 # 1. open the browser
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)  # synchronizing the browser
@@ -36,22 +39,28 @@ print(win_name)
 print(browser_name)
 print(page_title)
 print(win_names)
+driver.save_screenshot(filepath + 'screenshot1.png')
 
 print("######### webdriver methods: ############")
 # back(), forward(), refresh(), switch_to.window(window_name)
 driver.back()
 time.sleep(1)
 print('current url: ', driver.current_url)
+driver.save_screenshot(filepath + 'screenshot2.png')
+
 driver.forward()
 print('current url: ', driver.current_url)
 time.sleep(1)
 driver.refresh()
 time.sleep(1)
+driver.save_screenshot(filepath + 'screenshot3.png')
 
-print (" ################# switch_to.window(window_name) ##########")
+print(" ################# switch_to.window(window_name) ##########")
 products = driver.find_elements(By.XPATH, "//div[@id='center_column']//a[@class='product-name']")
 products[0].click()
 time.sleep(5)
+driver.save_screenshot(filepath + 'screenshot4.png')
+
 fb_btn_xpath = '//button[@class="btn btn-default btn-facebook"]'
 driver.find_element(By.XPATH, fb_btn_xpath).click()
 win_names = driver.window_handles
@@ -59,10 +68,12 @@ print(win_names)
 print(driver.title)
 time.sleep(2)
 driver.switch_to.window(win_names[-1])
+driver.save_screenshot(filepath + 'screenshotFbBefore.png')
 
 driver.find_element(By.ID, 'email').send_keys("myemail@gmail.com")
 driver.find_element(By.NAME, 'pass').send_keys("#$%YoudontknowmyPassEvenIdontknow")
 time.sleep(5)
+driver.save_screenshot(filepath + 'screenshotFbAfter.png')
 
 # close the browser
 driver.close()  # it will close current window
