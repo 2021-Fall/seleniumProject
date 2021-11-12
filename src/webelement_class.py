@@ -91,10 +91,15 @@ driver.save_screenshot(filepath + 'signup2.png')
 
 
 # Agenda for next classes:
+# practice websites: "https://courses.letskodeit.com/practice", "https://jqueryui.com/droppable/"
+
 # Selenium - 2 classes:
 # handling drop down list: Select class
 # handling js Alert , ok, cancel, entering text, switch_to.Alert
+
 # explicit wait : WebDriverWait class, expected_conditions class
+# https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
+
 # mouse movements: hover over on the element, drag and drop : ActionChains Class
 
 # Framework - 2 classes:
