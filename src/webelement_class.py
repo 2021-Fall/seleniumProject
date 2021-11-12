@@ -99,3 +99,5 @@ driver.save_screenshot(filepath + 'signup2.png')
 
 # Framework - 2 classes:
 # Pytest (unit testing), Page object Modeling
+
+# xpath: '//span[@class="inline-infos"]' vs css_selector: 'span.inline-infos'
