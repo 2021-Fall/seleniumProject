@@ -223,7 +223,7 @@ create new account to get the username and password then create automated scenar
 # pswd = "$Password001"
 ```
 
-Please check the automation test example for finding the element and doing some action on this element. [find element by exapmle](find_elements.py)
+Please check the automation test example for finding the element and doing some action on this element. [find element by exapmle](src/find_elements.py)
 
 
 ### Agenda for Automation classes on Selenium
