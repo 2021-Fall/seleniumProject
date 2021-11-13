@@ -1,7 +1,3 @@
-# Title of the page
-## Title 2 text
-### title 3
-
 # Selenium WebDriver with Python
 
 ## Selenium setup
