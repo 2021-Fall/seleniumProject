@@ -346,12 +346,11 @@ Note: remember status codes: 200, 401, 404, 500, 300, 201
 - https://jqueryui.com/droppable/
 - https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
 
-### Selenium - 2 classes:
-#### 1. Webelement class, Synchronization methods
-- handling drop down list: Select class
-- handling js Alert , ok, cancel, entering text, switch_to.Alert
+#### 1. Selenium - 2 classes:
+- Webelement class: handling drop down list: Select class
+- Webelement class: handling js Alert , ok, cancel, entering text, switch_to.Alert
   *practice here: https://courses.letskodeit.com/practice*
-- explicit wait : WebDriverWait class, expected_conditions class
+- Synchronization methods: explicit wait : WebDriverWait class, expected_conditions class
  *practice here: https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver *
 - Mouse movements: hover over on the element, drag and drop : ActionChains Class
   *practice here: https://jqueryui.com/droppable/
