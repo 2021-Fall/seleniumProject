@@ -339,6 +339,28 @@ Note: remember status codes: 200, 401, 404, 500, 300, 201
 - Performance testing (NO - jmeter, LoadRunner etc.)
 - Security Testing (i.e.Penetration testing, NO)
 
+## Agenda for next classes:
+
+** Automation practice websites: **
+- https://courses.letskodeit.com/practice
+- https://jqueryui.com/droppable/
+- https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
+
+### Selenium - 2 classes:
+#### 1. Webelement class, Synchronization methods
+- handling drop down list: Select class
+- handling js Alert , ok, cancel, entering text, switch_to.Alert
+  *practice here: https://courses.letskodeit.com/practice*
+- explicit wait : WebDriverWait class, expected_conditions class
+ *practice here: https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver *
+- Mouse movements: hover over on the element, drag and drop : ActionChains Class
+  *practice here: https://jqueryui.com/droppable/
+
+#### 2. Framework - 2 classes:
+- Pytest (unit testing)
+- Page object Modeling
+
+
 
 ----
 ## Useful links and References: 
