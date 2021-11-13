@@ -341,7 +341,7 @@ Note: remember status codes: 200, 401, 404, 500, 300, 201
 
 ## Agenda for next classes:
 
-** Automation practice websites: **
+**Automation practice websites:**
 - https://courses.letskodeit.com/practice
 - https://jqueryui.com/droppable/
 - https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
