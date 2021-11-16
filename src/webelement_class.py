@@ -3,15 +3,15 @@ from time import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
 
-# VARIABLES
+# VARIABLES - Test Data
 email = 'mycool@email.com'
 cust_fname = 'John'
 cust_lname = 'Doe'
 password = 'ForgetMeAsUsual123'
 state = 'New Jersey'
 filepath = '../screenshots/'
-
 
 # STEPS
 # 1. open the browser
@@ -67,7 +67,6 @@ if mrs_gender.is_selected():
 print("Is gender type MR selected? - ", mr_gender.is_selected())
 print("Is gender type MRS selected? - ", mrs_gender.is_selected())
 
-
 # verify Sign up is checked
 print("Is Sign Up checkbox checked? - ", nl_checkbox.is_selected())
 
@@ -84,11 +83,25 @@ driver.save_screenshot(filepath + 'signup2.png')
 
 # Drop down Select State
 # verify state is selected
+# html DOM - document object model
+# driver.execute_script('arguments[0].click();', driver.find_element(By.ID, 'someid'))
+driver.execute_script('window.scrollBy(0,800)')  # executing java script code
+
+state_ddown = Select(driver.find_element(By.ID, 'id_state'))
+
+state_ddown.select_by_value('2')
+# state_ddown.options - returns all available options
+print('current selections: ', state_ddown.all_selected_options[0].text)  # returns all selected options
+sleep(5)
+state_ddown.select_by_visible_text('California')
+print('current selections: ', state_ddown.all_selected_options[0].text)  # returns all selected options
+sleep(5)
+state_ddown.select_by_index(2)
+print('current selections: ', state_ddown.all_selected_options[0].text)  # returns all selected options
 
 # H/W
 # ....
 # click on Register
-
 
 # Agenda for next classes:
 # practice websites: "https://courses.letskodeit.com/practice", "https://jqueryui.com/droppable/"
