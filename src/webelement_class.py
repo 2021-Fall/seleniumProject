@@ -1,11 +1,15 @@
 from time import *
 
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
 
 # VARIABLES - Test Data
+
 filepath = '../screenshots/'
 
 # STEPS
@@ -15,11 +19,34 @@ driver.implicitly_wait(20)  # synchronizing the browser
 driver.maximize_window()
 
 
+def click_element_by_locator(locator, method='xpath', wait_time=10):
+    """click with explicit wait"""
+    try:
+        wdwait = WebDriverWait(driver, wait_time)
+        # elem = driver.find_element(xpath) - this is with implicit wait
+        element = object  # very general data type
+        if method == 'xpath':
+            element = wdwait.until(EC.presence_of_element_located((By.XPATH, locator)))
+        elif method == 'id':
+            element = wdwait.until(EC.presence_of_element_located((By.ID, locator)))
+        elif method == 'css':
+            element = wdwait.until(EC.presence_of_element_located((By.CSS_SELECTOR, locator)))
+        element.click()
+    except (NoSuchElementException, TimeoutException) as err:
+        print('Error on click element by locator, check locator', locator)
+        print(err)
+
+
 def test_go_to_authentication_page():
     # 2. open the automationpractice.com demo website
     driver.get("http://automationpractice.com/index.php")
     # click on sign in
-    driver.find_element(By.XPATH, "//a[contains(text(),'Sign in')]").click()
+    sign_in_link = "//a[contains(text(),'Sign in')]"
+    # options 1, to click using regular find_element method
+    driver.find_element(By.XPATH, sign_in_link).click()
+    # option 2, to use function we created above with explicit wait
+    click_element_by_locator(sign_in_link)
+    # click_element_by_xpath(sign_in_link, 20)
     sleep(3)
 
 
@@ -44,6 +71,7 @@ def test_create_account(email):
     mr_gender = driver.find_element(By.ID, "id_gender1")
     mrs_gender = driver.find_element(By.ID, "id_gender2")
     mrs_gender.click()
+    click_element_by_locator('id_genger2', method='id')
 
     # Enter first name
     cfirst_name = driver.find_element(By.NAME, "customer_firstname")
@@ -111,3 +139,22 @@ def test_create_account(email):
     # H/W
     # ....
     # click on Register
+
+
+def test_explicit_wait():
+    # open the website
+    host = "https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver"
+    driver.get(host)
+    print("########## Testing Populate text #############")
+    click_element_by_locator('populate-text', 'id')
+    wdwait = WebDriverWait(driver, 15)
+    wdwait.until(EC.text_to_be_present_in_element((By.ID, 'h2'), 'Selenium'))
+    element = wdwait.until(EC.presence_of_element_located((By.ID, 'h2')))
+    print('Text in the element:', element.text)
+
+    print("########## Testing Visibility of element #############")
+    click_element_by_locator('display-other-button', 'id')
+    button_text = wdwait.until(EC.visibility_of_element_located((By.ID, 'hidden'))).text
+    print('Text inside the button: ', button_text)
+
+
