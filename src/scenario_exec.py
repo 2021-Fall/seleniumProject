@@ -8,4 +8,9 @@ email = 'mycool@email.com'
 
 # test_go_to_authentication_page()
 # test_create_account(email)
-test_explicit_wait()
+# test_explicit_wait()
+# test_drag_drop()
+test_mouse_hover_over()
+
+sleep(5)
+driver.quit()

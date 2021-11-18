@@ -2,11 +2,12 @@ from time import *
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # VARIABLES - Test Data
 
@@ -158,3 +159,28 @@ def test_explicit_wait():
     print('Text inside the button: ', button_text)
 
 
+def test_drag_drop():
+    print("########## Testing Drag and drop ###########")
+    driver.get("https://jqueryui.com/droppable/")
+    wdwait = WebDriverWait(driver, 20)
+    driver.switch_to.frame(0)
+    source_element = wdwait.until(EC.presence_of_element_located((By.ID, 'draggable')))
+    target_element = wdwait.until(EC.presence_of_element_located((By.ID, 'droppable')))
+    print(f"Original text in the box: '{target_element.text}'")
+
+    actions = ActionChains(driver)
+    actions.drag_and_drop(source_element, target_element).perform()
+    # actions.click_and_hold(source_element).move_to_element(target_element).perform()
+    print(f"text in the box after drag and drop: '{target_element.text}'")
+
+
+def test_mouse_hover_over():
+    wdwait = WebDriverWait(driver, 20)
+
+    driver.get("http://automationpractice.com/index.php")
+    driver.execute_script('window.scrollBy(0,800)')  # executing java script code
+
+    product1 = wdwait.until(EC.presence_of_element_located((By.XPATH, "//ul[@id='homefeatured']/li[1]")))
+    actions = ActionChains(driver)
+    actions.move_to_element(product1).perform()
+    driver.find_element(By.LINK_TEXT, 'Add to cart').click()
