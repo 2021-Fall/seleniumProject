@@ -1,3 +1,4 @@
+import pytest
 from time import *
 
 from selenium import webdriver
@@ -15,6 +16,7 @@ name_input_xpath = "//input[@name='enter-name']"
 name = 'John Doe'
 
 
+@pytest.mark.alert_1
 def test_alert_single_button(driver):
     # 2. open the website
     print('opening the page ...')

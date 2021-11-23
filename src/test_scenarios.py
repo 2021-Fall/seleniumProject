@@ -4,13 +4,8 @@ import pytest
 email = 'mycool@email.com'
 
 
-# STEPS
-# 1. open the browser
-# driver = webdriver.Chrome()
-# driver.implicitly_wait(20)  # synchronizing the browser
-# driver.maximize_window()
 
-# ---------    EXECUTIONS ----------------
+# ---------  EXECUTIONS ----------------
 # test_alert_single_button()
 # test_alert_multi_button()
 
@@ -27,10 +22,6 @@ email = 'mycool@email.com'
 #
 # assert divide_num(4, 2) == 2
 # assert divide_num(3, 0) != 0, "divide_num assertion failed"
-#
-# sleep(5)
-# driver.quit()
-
 
 @pytest.mark.myFirstCase
 @pytest.mark.sample1
