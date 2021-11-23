@@ -184,3 +184,9 @@ def test_mouse_hover_over():
     actions = ActionChains(driver)
     actions.move_to_element(product1).perform()
     driver.find_element(By.LINK_TEXT, 'Add to cart').click()
+
+
+def test_awesome_scenario():
+    driver.get()
+    click_element_by_locator()
+    test_drag_drop()
