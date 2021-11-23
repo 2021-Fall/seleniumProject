@@ -14,14 +14,8 @@ filepath = '../screenshots/'
 name_input_xpath = "//input[@name='enter-name']"
 name = 'John Doe'
 
-# STEPS
-# 1. open the browser
-driver = webdriver.Chrome()
-driver.implicitly_wait(20)  # synchronizing the browser
-driver.maximize_window()
 
-
-def test_alert_single_button():
+def test_alert_single_button(driver):
     # 2. open the website
     print('opening the page ...')
     driver.get(HOST)
@@ -42,7 +36,7 @@ def test_alert_single_button():
     sleep(5)
 
 
-def test_alert_multi_button():
+def test_alert_multi_button(driver):
     # 2. open the website
     print('opening the page ...')
     driver.get(HOST)
@@ -60,4 +54,3 @@ def test_alert_multi_button():
     sleep(5)
     alert2.dismiss()  # clicking the cancel button
     print("####### canceled the alert ###############")
-

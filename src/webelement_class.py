@@ -13,14 +13,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 filepath = '../screenshots/'
 
-# STEPS
-# 1. open the browser
-driver = webdriver.Chrome()
-driver.implicitly_wait(20)  # synchronizing the browser
-driver.maximize_window()
 
-
-def click_element_by_locator(locator, method='xpath', wait_time=10):
+def click_element_by_locator(driver, locator, method='xpath', wait_time=10):
     """click with explicit wait"""
     try:
         wdwait = WebDriverWait(driver, wait_time)
@@ -38,7 +32,7 @@ def click_element_by_locator(locator, method='xpath', wait_time=10):
         print(err)
 
 
-def test_go_to_authentication_page():
+def test_go_to_authentication_page(driver):
     # 2. open the automationpractice.com demo website
     driver.get("http://automationpractice.com/index.php")
     # click on sign in
@@ -51,7 +45,7 @@ def test_go_to_authentication_page():
     sleep(3)
 
 
-def test_create_account(email):
+def test_create_account(driver, email):
     """
     Creating the account with email and static data for the sign up info
     This step is dependent on test_go_to_authentication_page()
@@ -142,7 +136,7 @@ def test_create_account(email):
     # click on Register
 
 
-def test_explicit_wait():
+def test_explicit_wait(driver):
     # open the website
     host = "https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver"
     driver.get(host)
@@ -159,7 +153,7 @@ def test_explicit_wait():
     print('Text inside the button: ', button_text)
 
 
-def test_drag_drop():
+def test_drag_drop(driver):
     print("########## Testing Drag and drop ###########")
     driver.get("https://jqueryui.com/droppable/")
     wdwait = WebDriverWait(driver, 20)
@@ -174,7 +168,7 @@ def test_drag_drop():
     print(f"text in the box after drag and drop: '{target_element.text}'")
 
 
-def test_mouse_hover_over():
+def test_mouse_hover_over(driver):
     wdwait = WebDriverWait(driver, 20)
 
     driver.get("http://automationpractice.com/index.php")
@@ -186,7 +180,7 @@ def test_mouse_hover_over():
     driver.find_element(By.LINK_TEXT, 'Add to cart').click()
 
 
-def test_awesome_scenario():
+def test_awesome_scenario(driver):
     driver.get()
     click_element_by_locator()
     test_drag_drop()
