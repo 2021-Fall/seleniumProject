@@ -352,13 +352,24 @@ Note: remember status codes: 200, 401, 404, 500, 300, 201
   *practice here: https://jqueryui.com/droppable/
 
 #### 2. Framework - 2 classes:
-- Pytest (unit testing)
-- Page object Modeling
-
+- pytest unit testing library
+    - to generate test reports with pass and fail status.
+    - hooks(fixtures)
+    this will help you to better manager your execution
+    - how to run regression suites
+    
+- Page Object Modeling (designing patter)
+    - handle locators and page functions of each page 
+    - this is good when you work with complex project.
+    - helps you to maintain changing web elements
+    - Classes, Inheritance, encapsulation,  polymorphism
 
 ### PYTEST
 
-running tests : 
+You can find [pytest documentation here](https://docs.pytest.org/en/6.2.x/contents.html#toc)
+
+#### Running tests with pytest
+
 ```python
 pytest -s -v test_scenarios.py
 pytest -s -v test_scenarios.py::test_sample_pytst
@@ -367,14 +378,20 @@ pytest -s -v test_scenarios.py::test_sample_pytst
 pytest -s -v -m sample1
 
 $ pytest -s -v -m regression --disable-pytest-warnings >> reports/20211123_919_regression
-
 ```
-Pytest Fixtures
+
+#### Pytest Fixtures
+Software test fixtures initialize test functions. They provide a fixed baseline so that tests execute reliably and produce consistent, repeatable, results. Initialization may setup services, state, or other operating environments. These are accessed by test functions through arguments; for each fixture used by a test function there is typically a parameter (named after the fixture) in the test function’s definition.
+
+Pytest fixtures offer dramatic improvements over the classic xUnit style of setup/teardown functions:
+
+- fixtures have explicit names and are activated by declaring their use from test functions, modules, classes or whole projects.
+- fixtures are implemented in a modular manner, as each fixture name triggers a fixture function which can itself use other fixtures.
+- fixture management scales from simple unit to complex functional testing, allowing to parametrize fixtures and tests according to configuration and component options, or to re-use fixtures across function, class, module or whole test session scopes.
+- teardown logic can be easily, and safely managed, no matter how many fixtures are used, without the need to carefully handle errors by hand or micromanage the order that cleanup steps are added.
 
 - SetUp : steps to execute before session/file/functions (scope)
 - TearDown : steps to execute after session/file/functions (scope)
-
-
 
 ----
 ## Useful links and References: 
@@ -383,3 +400,4 @@ Pytest Fixtures
 3. [Learning Selenium Testing Tools with Python (book)](data/Learning_Selenium.pdf)
 4. [What is xpath and how to build them.](https://www.guru99.com/xpath-selenium.html)
 5. [Socratica playlist in youtube](https://youtu.be/bY6m6_IIN94)
+6. [Pytest Documentation](https://docs.pytest.org/en/6.2.x/contents.html#toc)
