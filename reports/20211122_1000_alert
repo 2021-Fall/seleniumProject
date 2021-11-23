@@ -1,0 +1,7 @@
+============================= test session starts =============================
+platform win32 -- Python 3.9.7, pytest-6.2.5, py-1.10.0, pluggy-0.13.1 -- C:\Program Files\Python39\python.exe
+cachedir: .pytest_cache
+rootdir: C:\dev\seleniumProject
+collecting ... collected 2 items / 2 deselected
+
+====================== 2 deselected, 5 warnings in 0.15s ======================

@@ -1,3 +1,4 @@
+import pytest
 from time import *
 
 from selenium import webdriver
@@ -15,6 +16,7 @@ name_input_xpath = "//input[@name='enter-name']"
 name = 'John Doe'
 
 
+@pytest.mark.alert_1
 def test_alert_single_button(driver):
     # 2. open the website
     print('opening the page ...')
@@ -54,3 +56,14 @@ def test_alert_multi_button(driver):
     sleep(5)
     alert2.dismiss()  # clicking the cancel button
     print("####### canceled the alert ###############")
+
+
+def sum_of_num(num1: int, num2: int):
+    return num1 + num2
+
+
+def divide_num(num1: int, num2: int):
+    if num2 == 0:
+        return "you can not divide by zero"
+    else:
+        return num1 / num2

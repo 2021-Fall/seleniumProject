@@ -356,6 +356,25 @@ Note: remember status codes: 200, 401, 404, 500, 300, 201
 - Page object Modeling
 
 
+### PYTEST
+
+running tests : 
+```python
+pytest -s -v test_scenarios.py
+pytest -s -v test_scenarios.py::test_sample_pytst
+
+# if you have marks for the functions
+pytest -s -v -m sample1
+
+$ pytest -s -v -m regression --disable-pytest-warnings >> reports/20211123_919_regression
+
+```
+Pytest Fixtures
+
+- SetUp : steps to execute before session/file/functions (scope)
+- TearDown : steps to execute after session/file/functions (scope)
+
+
 
 ----
 ## Useful links and References: 
