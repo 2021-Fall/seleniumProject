@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # VARIABLES - Test Data
 
-filepath = '../screenshots/'
+filepath = '../../screenshots/'
 
 
 def click_element_by_locator(driver, locator, method='xpath', wait_time=10):
@@ -34,10 +34,15 @@ def click_element_by_locator(driver, locator, method='xpath', wait_time=10):
 
 
 def test_go_to_authentication_page(driver):
-    # 2. open the automationpractice.com demo website
-    driver.get("http://automationpractice.com/index.php")
-    # click on sign in
+    # Test Data:
+    host = "http://automationpractice.com/index.php"
+
+    # Locators:
     sign_in_link = "//a[contains(text(),'Sign in')]"
+
+    # 2. open the website
+    driver.get(host)
+    # click on sign in
     # options 1, to click using regular find_element method
     driver.find_element(By.XPATH, sign_in_link).click()
     # option 2, to use function we created above with explicit wait

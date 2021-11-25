@@ -11,7 +11,7 @@ Webelement class: handling js Alert , ok, cancel, entering text, switch_to.Alert
 '''
 # Variables:
 HOST = "https://courses.letskodeit.com/practice"
-filepath = '../screenshots/'
+filepath = '../../screenshots/'
 name_input_xpath = "//input[@name='enter-name']"
 name = 'John Doe'
 

@@ -11,7 +11,7 @@ cust_fname = 'John'
 cust_lname = 'Doe'
 password = 'ForgetMeAsUsual123'
 state = 'New Jersey'
-filepath = '../screenshots/'
+filepath = '../../screenshots/'
 
 
 # STEPS
