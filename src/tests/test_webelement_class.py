@@ -9,45 +9,24 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from src.pages.signin_page import *
 
 # VARIABLES - Test Data
-
 filepath = '../../screenshots/'
-
-
-def click_element_by_locator(driver, locator, method='xpath', wait_time=10):
-    """click with explicit wait"""
-    try:
-        wdwait = WebDriverWait(driver, wait_time)
-        # elem = driver.find_element(xpath) - this is with implicit wait
-        element = object  # very general data type
-        if method == 'xpath':
-            element = wdwait.until(EC.presence_of_element_located((By.XPATH, locator)))
-        elif method == 'id':
-            element = wdwait.until(EC.presence_of_element_located((By.ID, locator)))
-        elif method == 'css':
-            element = wdwait.until(EC.presence_of_element_located((By.CSS_SELECTOR, locator)))
-        element.click()
-    except (NoSuchElementException, TimeoutException) as err:
-        print('Error on click element by locator, check locator', locator)
-        print(err)
 
 
 def test_go_to_authentication_page(driver):
     # Test Data:
     host = "http://automationpractice.com/index.php"
 
-    # Locators:
-    sign_in_link = "//a[contains(text(),'Sign in')]"
+    # page objects: ( object of SignInPage class)
+    signin_page = SignInPage(driver)
 
     # 2. open the website
     driver.get(host)
     # click on sign in
-    # options 1, to click using regular find_element method
-    driver.find_element(By.XPATH, sign_in_link).click()
-    # option 2, to use function we created above with explicit wait
-    click_element_by_locator(sign_in_link)
-    # click_element_by_xpath(sign_in_link, 20)
+    # click_element_by_locator(sign_in_link)
+    signin_page.click_signin_link()
     sleep(3)
 
 
@@ -57,11 +36,15 @@ def test_create_account(driver, email):
     This step is dependent on test_go_to_authentication_page()
     :param email: email with @ symbol and dot to be included
     """
-    # Variable
+    # Test Data
     cust_fname = 'John'
     cust_lname = 'Doe'
     password = 'ForgetMeAsUsual123'
     state = 'New Jersey'
+
+    # Page objects:
+    signin_page = SignInPage(driver)
+    contacts_page = ContactsPage(driver)
 
     # enter email address to Create an Account field, mycool@email.com, click on create account
     driver.find_element(By.ID, "email_create").send_keys(email)
@@ -69,10 +52,20 @@ def test_create_account(driver, email):
     sleep(3)
 
     # radio button: click on Mr
-    mr_gender = driver.find_element(By.ID, "id_gender1")
-    mrs_gender = driver.find_element(By.ID, "id_gender2")
-    mrs_gender.click()
-    click_element_by_locator('id_genger2', method='id')
+    signin_page.select_gender('Mr')
+    signin_page.click_element_by_locator('id_genger2', method='id')
+
+    # if you are in contact page
+    contacts_page.select_heading('Webmaster')
+
+
+
+
+
+
+
+
+
 
     # Enter first name
     cfirst_name = driver.find_element(By.NAME, "customer_firstname")
